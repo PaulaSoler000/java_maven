@@ -22,7 +22,7 @@ class ConexionMariaDB {
             Statement stmt = conexion.createStatement();
 
             // Ejecutar una consulta
-            String sql = "SELECT id, nombre, correo FROM usuarios";
+            String sql = "SELECT id, nombre, correo, dni FROM usuarios";
             ResultSet rs = stmt.executeQuery(sql);
 
             // Procesar los resultados
@@ -30,7 +30,8 @@ class ConexionMariaDB {
                 int id = rs.getInt("id");
                 String nombre = rs.getString("nombre");
                 String correo = rs.getString("correo");
-                System.out.printf("ID: %d, Nombre: %s, Correo: %s%n", id, nombre, correo);
+                String dni = rs.getString("dni");
+                System.out.printf("ID: %d, Nombre: %s, Correo: %s%n , dni: %s%n", id, nombre, correo, dni);
             }
 
             // Cerrar recursos
